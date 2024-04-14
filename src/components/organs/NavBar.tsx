@@ -22,7 +22,7 @@ const NavBar = () => {
     }
 
     const listenScrollEvent = () => {
-        window.scrollY > 10 ? setNavBarColor(true) : setNavBarColor(false);
+        window.scrollY > 0 ? setNavBarColor(true) : setNavBarColor(false);
     };
 
     useEffect(() => {
@@ -47,7 +47,6 @@ const NavBar = () => {
                                     </List>
                                 ))
                             }
-
                         </ul>
                         <ul className="flex items-center justify-center gap-6">
                             {
@@ -58,26 +57,24 @@ const NavBar = () => {
                                 ))
                             }
                             <List className="text-gray-950">
-                                <select className="border-none font-light text-base outline-none bg-transparent">
-                                    <option value="EN" selected>EN</option>
-                                    <option value="ITA">ITA</option>
-                                    <option value="FRA">FRA</option>
-                                </select>
+                                <div className="border-none font-light text-base outline-none bg-transparent">
+                                    EN
+                                </div>
                             </List>
                         </ul>
                     </div>
                     <div className="lg:hidden flex gap-4 items-center">
-                        <select className="border-none outline-none font-light text-sm bg-transparent">
-                            <option value="EN" selected>EN</option>
-                            <option value="ITA">ITA</option>
-                            <option value="FRA">FRA</option>
-                        </select>
+                        <div className="border-none outline-none font-light text-sm bg-transparent">
+                            EN
+                            
+                        </div>
                         <div className="hamburger text-gray-950 cursor-pointer" onClick={handleToggle}>
                             <CirclesFour size={30} color="currentColor" weight="fill" />
                         </div>
                     </div>
                 </nav>
             </Slide>
+
 
 
             {/* Mobile Nav  */}
@@ -88,6 +85,7 @@ const NavBar = () => {
                             <Image as="a" href="/" className="md:h-10 h-8" image={Logo} alt="Logo" />
                             <div className="hamburger text-gray-950 cursor-pointer" onClick={handleToggle}>
                                 <ArrowCircleRight size={25} color="currentColor" weight="fill" />
+                                
                             </div>
                         </div>
                         <ul className="flex flex-col gap-3 pl-2">
@@ -104,6 +102,7 @@ const NavBar = () => {
                         {
                             NavButtons.map((navbutton, index) => (
                                 <List className="w-auto" key={index}>
+                                    
                                     <Button onClick={() => navigate(navbutton.url)} type="button" className={`${navbutton.name === "Signup" ? "border-2 border-gray-950 before:top-0" : "before:bottom-0 border-b-2 border-white hover:border-gray-950"} py-1.5 px-5 relative z-10 before:content-[''] before:absolute before:left-0 before:w-full before:h-0 before:bg-color2 before:-z-10 hover:before:h-full before:transition-all before:duration-300 before:ease-in text-base`}>{navbutton.name}</Button>
                                 </List>
                             ))
